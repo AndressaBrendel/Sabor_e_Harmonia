@@ -1,0 +1,134 @@
+
+/* formulário de reserva */
+.reserva-container {
+  background-color: #000000; 
+  width: 100%;
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+  color: white;
+  text-align: center;
+}
+
+.reserva-container h1 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+.reserva-container input,
+.reserva-container textarea {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, .2);
+  border-radius: 40px;
+  outline: none;
+  margin: 30px 0;
+  font-size: 16px;
+  color: gray;
+  padding: 20px 45px 20px 20px;
+}
+
+/* Botão reservar */
+.reserva-container button {
+  background-color: #4CAF50;
+  color: white;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 40px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.reserva-container button:hover {
+  background-color: #3e8e41;
+}
+
+/* estilo para o e-mail */
+input#email {
+    text-transform: none;
+}
+
+/* estilo para o nome */
+input#nome {
+    text-transform: none;
+}
+/* Estilos a confirmação */
+.confirmacao-container {
+    background-color: #000000; 
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 500px; 
+    height: 700px;
+    width: 100%;
+    margin: 60px auto; 
+    text-align: center; 
+    color: white; 
+}
+
+.confirmacao-container h1 {
+    color: #2ecc71; 
+    margin-bottom: 20px;
+    font-size: 3.2em;
+}
+
+.confirmacao-container p {
+    font-size: 1.9em;
+    line-height: 1.9;
+    margin-bottom: 15px;
+}
+
+.confirmacao-container .detalhes-reserva {
+    background-color: #34495e; 
+    padding: 20px;
+    border-radius: 6px;
+    margin-top: 25px;
+    text-align: left; 
+}
+
+.confirmacao-container .detalhes-reserva h2 {
+    color: #3498db; 
+    margin-bottom: 15px;
+    font-size: 2.0em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+.confirmacao-container .detalhes-reserva p {
+    margin-bottom: 10px;
+    font-size: 1.9em;
+    color: #bdc3c7; 
+}
+
+.confirmacao-container .detalhes-reserva strong {
+    color: #ffffff; 
+}
+
+.btn-voltar-home{
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  margin: 20px 0;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+
+ .alerta-login h2 {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #ffffff;
+ }

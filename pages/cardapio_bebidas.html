@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cardápio Digital - Bebidas</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style/cardapios.css" />
+  </head>
+  <body>
+    <header class="header">
+      <section>
+        <div class="logo">
+          <a href="./index.html">
+            <img width="80" 
+              src="../assets/imagens/geral/logo2-removebg-preview.png" 
+              alt="Logo do Restaurante" />
+        </a>
+        </div>
+        <nav class="navbar">
+          <a href="./index.html">Home</a>
+          <a href="./cardapio_bebidas.html">Bebidas</a>
+          <a href="./cardapio_vegano.html">Veganos</a>
+          <a href="./cardapio_vegetariano.html">Vegetariano</a>
+          <a href="./cardapio_carnivoro.html">Carnívoro</a>
+        </nav>
+      </section>
+    </header>
+
+    <main class="container">
+      <section id="bebidas" class="menu-section">
+        <div class="section-header">
+          <h2 class="section-title">Bebidas</h2>
+        </div>
+
+        <div class="menu-grid">
+          <div class="menu-card">
+            <div class="item-content">
+              <div class="card-header">
+                <h3 class="item-name">Água com gás</h3>
+                <div class="item-price">R$ 4,99</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="item-content">
+              <div class="card-header">
+                <h3 class="item-name">Suco natural</h3>
+                <div class="item-price">R$ 11,99</div>
+              </div>
+              <div class="item-description">(consultar sabor do dia)</div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="item-content">
+              <div class="card-header">
+                <h3 class="item-name">Refrigerante</h3>
+                <div class="item-price">R$ 6,99</div>
+              </div>
+              <div class="item-description">(lata)</div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="item-content">
+              <div class="card-header">
+                <h3 class="item-name">Taça de vinho</h3>
+                <div class="item-price">R$ 19,99</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="item-content">
+              <div class="card-header">
+                <h3 class="item-name">Garrafa de vinho</h3>
+                <div class="item-price">-</div>
+              </div>
+              <div class="item-description">(consultar disponíveis)</div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="item-content">
+              <div class="card-header">
+                <h3 class="item-name">Dose de whisky</h3>
+                <div class="item-price">R$ 22,99</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="item-content">
+              <div class="card-header">
+                <h3 class="item-name">Cerveja long neck</h3>
+                <div class="item-price">R$ 12,99</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="item-content">
+              <div class="card-header">
+                <h3 class="item-name">Caipirinha</h3>
+                <div class="item-price">R$ 15,99</div>
+              </div>
+              <div class="item-description">(limão ou morango)</div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="item-content">
+              <div class="card-header">
+                <h3 class="item-name">Mojito</h3>
+                <div class="item-price">R$ 17,99</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="item-content">
+              <div class="card-header">
+                <h3 class="item-name">Aperol</h3>
+                <div class="item-price">R$ 17,99</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="item-content">
+              <div class="card-header">
+                <h3 class="item-name">Sex on the Beach</h3>
+                <div class="item-price">R$ 17,99</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Smooth scrolling para os links do menu
+      document.querySelectorAll('.navbar a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Animação dos itens do menu ao fazer scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Aplicar animação inicial aos itens
+      document.querySelectorAll(".menu-item").forEach((item, index) => {
+        item.style.opacity = "0";
+        item.style.transform = "translateY(30px)";
+        item.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(item);
+      });
+
+      // Destacar o link ativo no menu
+      window.addEventListener("scroll", () => {
+        let current = "";
+        document.querySelectorAll("section[id]").forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (scrollY >= sectionTop - 200) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        document.querySelectorAll(".navbar a").forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

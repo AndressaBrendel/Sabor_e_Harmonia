@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reservas</title>
+    <link rel="stylesheet" href="../style/reserva.css" />
+    <link rel="stylesheet" href="../style/base.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <section>
+        <a href="../index.html" class="logo">
+          <img
+            src="../assets/imagens/geral/logo2-removebg-preview.png"
+            alt="logo"
+          />
+        </a>
+        <nav class="navbar">
+          <a href="index.html">Home</a>
+          <a href="index.html#about">Sobre</a>
+          <a href="index.html#menu">Menu</a>
+          <a href="index.html#review">Avaliações</a>
+          <a href="index.html#address">Endereço</a>
+        </nav>
+        <div class="icons">
+          <a href="./cadastro.html" class="user-icon">
+            <img
+              width="32"
+              height="32"
+              src="https://img.icons8.com/forma-regular/30/user.png"
+              alt="user"
+            />
+          </a>
+          <img
+            width="30"
+            height="30"
+            src="https://img.icons8.com/ios-filled/30/restaurant-table.png"
+            alt="restaurant-table"
+          />
+        </div>
+      </section>
+    </header>
+
+    <main class="main-content">
+      <div class="reserva-container">
+        <h1>Reserva</h1>
+        <div class="alerta-login">
+          <h2>Antes de realizar sua reserva, é necessário fazer login.</h2>
+        </div>
+        <a href="./cadastro.html">
+          <button class="btn-fazer-login">Faça o login</button>
+        </a>
+        <form id="reservaForm" action="reserva_confirmada.html">
+          <input type="text" id="nome" placeholder="Seu Nome" required /><br />
+          <input
+            type="email"
+            id="email"
+            placeholder="Seu E-mail"
+            required
+          /><br />
+          <input
+            type="number"
+            id="pessoas"
+            placeholder="Quantidade de Pessoas"
+            min="1"
+            required
+          /><br />
+          <input type="date" id="data" required /><br />
+          <input type="time" id="hora" required /><br />
+          <textarea id="obs" placeholder="Observações (Opcional)"></textarea
+          ><br />
+          <button type="submit">Reservar</button>
+        </form>
+      </div>
+    </main>
+    <section class="footer">
+      <div class="share">
+        <a href="../assets/imagens/redes/insta.png" class="user-icon">
+          <img
+            width="50"
+            height="50"
+            src="https://img.icons8.com/ios/100/instagram-new--v1.png"
+            alt="instagram-new--v1"
+          />
+        </a>
+
+        <a href="../assets/imagens/redes/facebook.png" class="user-icon">
+          <img
+            width="50"
+            height="50"
+            src="https://img.icons8.com/ios/50/facebook--v1.png"
+            alt="facebook--v1"
+          />
+        </a>
+
+        <a href="../assets/imagens/redes/twitter.png" class="user-icon">
+          <img
+            width="50"
+            height="50"
+            src="https://img.icons8.com/ios/50/twitterx--v1.png"
+            alt="twitterx--v1"
+          />
+        </a>
+
+        <a href="../assets/imagens/redes/whats.jpg" class="user-icon">
+          <img
+            width="50"
+            height="50"
+            src="https://img.icons8.com/ios/50/whatsapp--v1.png"
+            alt="whatsapp--v1"
+          />
+        </a>
+      </div>
+      <div class="info">
+        <div class="info-header">
+          <h3>Horário de Funcionamento</h3>
+        </div>
+        <p>Todos os dias das 08:00 às 00:00</p>
+      </div>
+    </section>
+
+    <script src="../script/reserva.js"></script>
+  </body>
+</html>
