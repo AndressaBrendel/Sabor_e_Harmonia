@@ -17,92 +17,49 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Lógica do Carrossel de Avaliações (presente apenas em index.html, mas o JS não dará erro em index_pag2.html)
-  const track = document.querySelector(".review .box"); // Este elemento está na div.box do carrossel de avaliações, não no box-container.
-  const items = document.querySelectorAll(".review .box-content"); // Cada avaliação individual
-
-  const prevArrow = document.querySelector(".review .nav-arrow.left");
-  const nextArrow = document.querySelector(".review .nav-arrow.right");
-
-  if (track && items.length > 0 && prevArrow && nextArrow) {
-    let currentIndex = 0;
-    const totalItems = items.length;
-
-    const itemsPerViewDesktop = 3;
-    const itemsPerViewMobile = 1; // Ajuste conforme seu CSS para mobile
-
-    function updateCarousel() {
-      const currentItemsPerView =
-        window.innerWidth <= 768 ? itemsPerViewMobile : itemsPerViewDesktop;
-
-      // Se o track não estiver visível (em index_pag2.html, por exemplo), evite erros de offsetWidth
-      if (
-        track.offsetWidth === 0 &&
-        window.location.pathname.includes("index_pag2.html")
-      ) {
-        return; // Não executa a lógica do carrossel se não estiver na página certa ou visível
-      }
-
-      const itemWidth = items[0].offsetWidth;
-      const gap = 16; // Seu CSS define o gap? Se não, remova ou defina um valor fixo.
-
-      const currentItemEffectiveWidth = itemWidth + gap;
-
-      const lastPossibleIndex = Math.max(0, totalItems - currentItemsPerView);
-
-      // Ajuste currentIndex para não exceder o limite
-      if (currentIndex > lastPossibleIndex) {
-        currentIndex = lastPossibleIndex;
-      }
-      if (currentIndex < 0) {
-        currentIndex = 0;
-      }
-
-      const translateX = -currentIndex * currentItemEffectiveWidth;
-
-      track.style.transform = `translateX(${translateX}px)`;
-
-      prevArrow.style.opacity = currentIndex === 0 ? "0.5" : "1";
-      prevArrow.style.cursor = currentIndex === 0 ? "not-allowed" : "pointer";
-
-      nextArrow.style.opacity = currentIndex >= lastPossibleIndex ? "0.5" : "1";
-      nextArrow.style.cursor =
-        currentIndex >= lastPossibleIndex ? "not-allowed" : "pointer";
-
-      if (totalItems <= currentItemsPerView) {
-        prevArrow.style.opacity = "0.5";
-        prevArrow.style.cursor = "not-allowed";
-        nextArrow.style.opacity = "0.5";
-        nextArrow.style.cursor = "not-allowed";
-      }
-    }
-
-    prevArrow.addEventListener("click", () => {
-      if (currentIndex > 0) {
-        currentIndex--;
+ const track = document.querySelector(".review .box-container");
+    const items = document.querySelectorAll(".review .box-content");
+    const prevBtn = document.querySelector(".review .nav-arrow.left");
+    const nextBtn = document.querySelector(".review .nav-arrow.right");
+    
+    if (track && items.length > 0) {
+        let currentIndex = 0;
+        const itemWidth = items[0].offsetWidth;
+        const gap = 20; // Ajuste conforme o gap no CSS
+        
+        function updateCarousel() {
+            const scrollPosition = currentIndex * (itemWidth + gap);
+            track.scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth'
+            });
+            
+            // Atualiza estado dos botões
+            prevBtn.style.opacity = currentIndex === 0 ? "0.5" : "1";
+            prevBtn.style.cursor = currentIndex === 0 ? "not-allowed" : "pointer";
+            
+            nextBtn.style.opacity = currentIndex >= items.length - 1 ? "0.5" : "1";
+            nextBtn.style.cursor = currentIndex >= items.length - 1 ? "not-allowed" : "pointer";
+        }
+        
+        prevBtn.addEventListener("click", () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+        
+        nextBtn.addEventListener("click", () => {
+            if (currentIndex < items.length - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+        
+        // Inicializa
         updateCarousel();
-      }
-    });
+    };
 
-    nextArrow.addEventListener("click", () => {
-      const currentItemsPerView =
-        window.innerWidth <= 768 ? itemsPerViewMobile : itemsPerViewDesktop;
-      const lastPossibleIndex = totalItems - currentItemsPerView;
-
-      if (currentIndex < lastPossibleIndex) {
-        currentIndex++;
-      } else {
-        currentIndex = 0; // Volta para o início se chegar ao fim
-      }
-      updateCarousel();
-    });
-
-    updateCarousel(); // Chamada inicial
-    window.addEventListener("resize", updateCarousel); // Atualiza no redimensionamento
-  } else {
-    console.warn(
-      "Elementos do carrossel de avaliações não encontrados ou insuficientes para inicializar. (Normal se não estiver na página principal)."
-    );
-  }
 
   // Lógica para o menu hamburguer (se houver, não vi o '#menu-btn' no HTML fornecido)
   const menuBtn = document.querySelector("#menu-btn"); // Verifique se este ID existe no seu HTML
