@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (dadosCadastrais) {
         if (dadosCadastrais.senha === senha) {
           localStorage.setItem("autenticado", true);
-          window.location.href = "../pages/index.html";
+          window.location.href = "../index.html";
         } else {
           document.getElementById("modalSenhaErrada").style.display = "flex";
         }
