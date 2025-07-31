@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     voltarLink.addEventListener("click", function (e) {
       e.preventDefault();
       // Redireciona para a página de login - ajuste o caminho conforme sua estrutura
-      window.location.href = "/pages/cadastro.html";
+      window.location.href = "../pages/cadastro.html";
     });
   } else {
     console.warn("Botão/Link de voltar não encontrado no DOM!");
